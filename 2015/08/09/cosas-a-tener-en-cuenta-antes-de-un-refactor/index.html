@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Hacía tiempo que quería escribir sobre esto, tenía muchas ganas de hablar sobre lo que he aprendido de refactors en los últimos dos meses, así que emp">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Miguel Ángel Viera">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Cosas a tener en cuenta antes de un refactor."/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Miguel Viera"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Cosas a tener en cuenta antes de un refactor. - Miguel Viera</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Miguel Viera</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Groxalf">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/images/header.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Cosas a tener en cuenta antes de un refactor.</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2015-08-09
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/Learning/">Learning</a>/ <a href="/categories/Learning/TDD/">TDD</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <script src="/assets/js/DPlayer.min.js"> </script><p>Hacía tiempo que quería escribir sobre esto, tenía muchas ganas de hablar sobre lo que he aprendido de refactors en los últimos dos meses, así que empezaré como para mí tiene que empezar todo tema, empezando por lo más básico. ¿Qué es un refactor? Hasta no hace mucho tenía dudas de como definirlo correctamente aunque lo tuviera bastante claro. Básicamente un refactor es una técnica en la que se acomete un cambio a nivel interno del código pero manteniendo la misma interfaz pública que tenía al principio.</p>
+<p>Conociendo esto quiero plantear los siguiente puntos en forma de consejos. Son las ideas que considero que son buenas interiorizar para que a la hora de realizar un refactor, estar seguro que es lo correcto.</p>
+<ul>
+<li><strong>Cuándo es el momento correcto:</strong> Quizás este es el punto más evidente, pero probablemente, también es el más importante. Muchas veces se comete el error, y me incluyo, de que cuando tu equipo de desarrollo está implementando una funcionalidad al software y todavía quedan casos o ejemplos por cubrir, se decida hacer un refactor. Es clave tener claro que lo que vas a hacer lo haces en el momento adecuado. Es bastante común que al hacer un refactor antes de su debido tiempo se genere mucho ruido en el código y que luego, seguir pasando tests, y completar la funcionalidad se acabe convirtiendo una tarea mucho más tediosa, o lo que es peor aún, tener que volver atrás porque ese no era el camino a tomar.</li>
+<li><strong>Babysteps:</strong> Esto es algo de lo que hablaré mucho de aquí en adelante y considero fundamental en mi forma de ver el desarrollo del software. El ir poco a poco, satisfaciendo los tests que escribes, sin preocuparte por los casos que le seguirán y modificando el código para que estos estén cubiertos, es lo más claro que hay que tener. El motivo es muy simple, escribir código de esta forma es lo que hace que las decisiones de diseño que hay que implementar, surjan por sí mismas. Dejar que sea el propio código el que te lo indique, es la forma más evidente de advertir cuando hay que aventurarse a hacer un refactor.</li>
+<li><strong>Evitar la sobreingeniería: </strong>Algo que me pasaba mucho al principio, cuando empecé a ver aprender patrones de diseño, era el intentar implementarlos en todos sitios. Hace tiempo tuve una conversación con mi buen amigo <a href="https://twitter.com/hinigul" target="_blank" rel="external">Johan</a> sobre que la sobreingeniería realmente no existe, que es un término que se emplea mucho, pero que no refleja el trasfondo del problema, que sin duda, es la falta de experiencia y de conocimiento a la hora de escribir código. Porque quien hace sobreingeniría, realmente es que no sabe hacer las cosas de otra forma . Estoy de acuerdo parcialmente con estas palabras, es evidente que la falta de experiencia es lo que te hace tomar malas decisiones, pero creo que el aplicar un patrón cuando no hay que aplicarlo, no implica que quien lo hace no sepa otra forma de resolver su problema. Es un término que me resulta un poco oscuro de definir de forma precisa, pero creo que realmente si que existe.</li>
+<li><strong>Extraer clases: </strong>Un apartado con el que me identifico mucho es precisamente el de extraer clases. Cuando empezaba a pasar tests y consideraba que un colaborador tenía que surgir en ese test, mi primera decisión siempre era pasarlo a código de producción, sin preocuparme si realmente ese colaborador iba a hacer lo que yo en ese momento creía que tenía que hacer, o si simplemente era el que tendría que asumir el comportamiento que suponía que haría. Al comprender cada vez mejor Outside-In, esto no me ocurre tanto, y aunque muchas veces al plantear el esqueleto del diseño es probable que me equivoque, sin duda es mucho mejor que los colaboradores que empleo estén en la clase de tests hasta que, después de haber cumplido mi progreso a través de babysteps, los pueda extraer en un refactor posterior, más que hacerlo cuando tenga que pasar un test y si se da el caso de que no era necesario pues simplemente borrar ese código. Es muy bueno el hecho de que cuando tengas que extraer un comportamiento de una clase, ya sea porque esa clase dependa demasiado de otra y trabaje más con datos externos que con los suyos propios (<em>Feature envy</em>) o porque hace más cosas de las que debería (<em>Single Responsability Principle</em>) esperes un poco antes de triangularizar, escribiendo más tests, para así estar complementamente seguro que es el momento adecuado.</li>
+<li><strong>Renames: </strong>Una de las cosas que más valoro a la hora de hacer un refactor es precisamente el momento de los renames. Muchas veces es bueno que cuando estás tomando decisiones que pueden alterar el comportamiento de una clase, tanto añadiéndole como quitándoselo, se piense en si esa decisión merece que la clase reciba otro nombre más acorde a lo que termina haciendo. Es muy bueno que en un scope de bajo nivel, una clase tenga un nombre muy específico de lo que hace para facilitar la legibilidad del código y consigue muchas veces clarificar y entender que lo que hace una clase solamente por su nombre. Esto se aplica de igual forma a las variables y métodos.</li>
+</ul>
+<p>El cometer un refactor debe ser siempre algo que te ayude a hacer el código mejor, en ningún caso debe confundir o añadirte ruido a lo que estás haciendo. Un mejor código implica que sea lo más simple y legible posible. No harás un refactor una única vez, no vas a encontrar el diseño perfecto por hacer babysteps, ni vas a estar completamente seguro que lo que hagas es la mejor opción de todas. Pero para mí es muy buena práctica forzarte a comprender estos puntos. No se trata de ir despacio, ni de preocuparte por lo que vendrá más tarde a medida que avances en los tests. Es el simple hecho de que cuando tomas una decisión estes completamente seguro que solo va a aportarte valor, nunca restarte.</p>
+<p>Hay un principio llamado KISS (<em>Keep It Simple Stupid</em>) que refleja claramente el por qué de todo esto. Si no consigues que a través de tus decisiones tu código sea cada vez mejor, lo único que lograrás es envolverlo en una capa de complejidad que solo te endurecerá las tareas posteriores, tanto a tí como a tu grupo de desarrollo. El refactor debe ser algo comedido y meditado, no es una decisión altruista. Y la mejor herramienta para frenar los impulsos de hacer uno, es siempre uno mismo y su determinación, emplear tu experiencia como un fusil, no soltar una ráfaga y esperar que alguna bala sea la que acierte por pura casualidad.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/Groxalf_Esp" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Groxalf" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
