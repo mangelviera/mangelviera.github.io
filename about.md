@@ -1,18 +1,19 @@
 ---
-title: Colophon
+title: About me
 permalink: /about/
 layout: page
-excerpt: Hello peeps, I'm student of computer science from Banyuwangi, living in Jogjakarta. This blog for documentation about my programming journey, running on jekyll, hosting on netlify and using my own simple theme.
+excerpt: I'm Miguel Viera. I work as a developer, consultant and coach at Codesai. I help teams to elevate their perception of quality software, integrating on them 
 comments: false
 ---
 
-He's a student from Banyuwangi, living in Jogjakarta. the blog for documentation about his programming 🎒 journey, running on jekyll, hosting on [now.sh](http://now.sh) and using his own theme, he name it <a href="https://github.com/piharpi/jekyll-klise" target="_blank" rel="noopener">klisé</a>, he also loves to learning web technology; but he often forgot, that a reason why him doing the writing.
+I'm Miguel Viera. I work as a developer, consultant and coach at Codesai. I help teams to elevate their perception of quality software.
 
-If you have a question about him or else, just send a letter to him.
+Welcome to my personal blog, this is going to be an experiment, I have not set up a goal or purpose with it, just a leissure in the mean time. I hope whatever I write here is useful for you, but I can't promise it! :P
 
-You can [report](http://github.com/piharpi/jekyll-klise/issues/new) if there is an broken link(s) or somethings else.
+Any feedback is welcome and I hope to hear from you. Thank you for passing by!
 
-**may u needs ✨**
+**You can reach me on:**
 
 - {{ site.author.email }}
-- github.com/{{ site.author.github }}
+- <a href="https://github.com/{{ site.author.github }}">Github</a>
+- <a href="https://twitter.com/{{ site.author.twitter }}">@mangelviera</a>
